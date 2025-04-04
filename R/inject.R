@@ -7,7 +7,7 @@
 #' @param curable whether to keep a copy of the original function if x is overwriting an existing method
 #' @return x, invisibly if infect=TRUE
 #' @export
-inject <- function(x, name = deparse(substitutex(x)),  target, infect = TRUE, curable = FALSE,  ...){
+inject <- function(x, name = deparse(substitute(x)),  target, infect = TRUE, curable = FALSE,  ...){
   UseMethod('inject')
 }
 
@@ -24,7 +24,7 @@ inject.character <- function(x, name = basename(x), target, infect = TRUE, curab
 
 #' @method inject function
 #' @export
-inject.function <- function(x, name = deparse(substitutex(x)), target, infect = TRUE, curable = FALSE){
+inject.function <- function(x, name = deparse(substitute(x)), target, infect = TRUE, curable = FALSE){
   if (is.character(target)) target <- asNamespace(target)
   environment(x) <- target
 
