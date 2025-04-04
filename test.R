@@ -1,2 +1,0 @@
-print <-
-function(...) 'infected22'
