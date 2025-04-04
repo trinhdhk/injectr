@@ -32,13 +32,14 @@ eject.function <-
       xns <- xname[[1]]
       xname <- xname[[2]]
     }
+    else xns <- parent.frame()
 
     # p <- capture.output(print(x))
     # p <- p[!grepl('^\\<(bytecode|environment)\\:', p, perl=TRUE)]
     # p <- c(paste0(xname, ' <- '), p)
     # writeLines(p, con=to)
     # suppressMessages(formatR::tidy_file(to, output=FALSE))
-    eject(xname, to, envir=xns)
+    eject(xname, from=xns, to=to)
   }
 
 #' @method eject character

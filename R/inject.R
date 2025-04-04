@@ -15,8 +15,11 @@ inject <- function(x, name = deparse(substitutex(x)),  target, infect = TRUE, cu
 #' @export
 inject.character <- function(x, name = basename(x), target, infect = TRUE, curable = FALSE){
   name <- strsplit(name, ".", fixed=TRUE)[[1]][[1]]
-  x <- source(x, echo=FALSE)
-  inject(x, name, target, infect)
+  xx <- new.env()
+  source(x, echo=FALSE, local = xx)
+  for (xname in ls(envir=xx)){
+    inject(xx[[xname]], xname, target, infect)
+  }
 }
 
 #' @method inject function
