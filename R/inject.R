@@ -18,7 +18,7 @@ inject.character <- function(x, name = basename(x), target, infect = TRUE, curab
   xx <- new.env()
   source(x, echo=FALSE, local = xx)
   for (xname in ls(envir=xx)){
-    inject(xx[[xname]], xname, target, infect)
+    if (mode(xx[[xname]]) == 'function') inject(xx[[xname]], xname, target, infect)
   }
 }
 
