@@ -31,7 +31,7 @@ inject.function <- function(x, name = deparse(substitutex(x)), target, infect = 
   is_new_object <- !exists(name, target)
   if (!is_new_object){
     if (curable) attr(x, '.orig') <- get(name, envir=target)
-    unlockBinding(name, target)
+    unlockBinding(name, target) # R is doubly careful with base package so this is to enforce for base
   }
 
   rlang::env_unlock(target)
