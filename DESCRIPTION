@@ -1,0 +1,21 @@
+Package: injectr
+Type: Package
+Title: Silly package to inject functions in a package with your own function
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Trinh", "Dong",
+      email = "trinhdhk@github.com",
+      role = c("aut", "cre")
+    )
+  )
+Description: This package is fully intended for debugging and personal extending of hidden methods in other packages. Not for production
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
+Depends:
+  R (>= 4.1)
+Imports:
+  rlang
+  
