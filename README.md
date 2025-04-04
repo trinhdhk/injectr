@@ -1,4 +1,4 @@
-# Small silly package to inject function into another package
+# Small silly package to inject functions into another package
 
 Sometimes you find an unexpected behaviour in your code but you don't know why.
 
